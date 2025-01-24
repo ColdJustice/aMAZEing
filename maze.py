@@ -25,15 +25,22 @@ class Maze():
         self._cell_size_x = cell_size_x
         self._cell_size_y = cell_size_y
         self._window = win
+
+
         if seed:
             random.seed(seed)
 
+        self._animate_delay = 0.00
         self._create_cells()
+        self._animate_delay = 0.05
         self._break_entrance_and_exit()
+        self._animate_delay = 0.01
         self._break_walls_r(0,0)
         self._reset_cells_visited()
+  
 
     def solve(self):
+        self._animate_delay = 0.03      
         return self._solve_r(0, 0)
     
 
@@ -106,7 +113,7 @@ class Maze():
             return
         
         self._window.redraw()
-        time.sleep(0.02)
+        time.sleep(self._animate_delay)
 
 
     def _break_entrance_and_exit(self):

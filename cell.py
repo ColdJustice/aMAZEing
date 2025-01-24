@@ -26,7 +26,7 @@ class Cell():
         self._x2 = x2
         self._y2 = y2
 
-        missing_wall_color = "#d9d9d9"
+        missing_wall_color = "#f0f0f0"
 
 
         self._window.draw_line(Line(Point(x1, y1), Point(x1, y2)), fill_color if self.has_left_wall   else missing_wall_color)
@@ -39,7 +39,7 @@ class Cell():
         if self._window is None:
             return
         
-        color = "gray" if undo else "red"
+        color = "red" if undo else "blue"
         p1 = self.get_center()
         p2 = to_cell.get_center()
         line = Line(p1, p2)
